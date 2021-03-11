@@ -32,6 +32,7 @@ class SignIn extends Component {
 
     return (
       <div className="align">
+         <img style={{backgroundColor: 'black'}} src="../spacex.png" alt="spacex-logo" width='13%' height='20px' />
         <img className="logo" src={logo} alt=""/>
         <div className="card">
           <div className="head">

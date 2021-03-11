@@ -24,15 +24,16 @@ class Register extends Component {
     e.preventDefault();
 
     this.props.register(this.state); 
-    this.props.history.push("/signin")
+    // this.props.history.push("/signin")
 
   };
   render() {
     const { authError, auth } = this.props;
-    if (auth.uid) return <Redirect to="/signin" />;
+    // if (auth.uid) return <Redirect to="/signin" />;
 
     return (
       <div className="align">
+        <img style={{backgroundColor: 'black'}} src="../spacex.png" alt="spacex-logo" width='13%' height='20px' />	
         <img className="logo" src={logo} alt="" />
         <div className="card">
           <div className="head">
