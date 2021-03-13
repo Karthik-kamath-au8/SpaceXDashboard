@@ -27,8 +27,8 @@ class SignIn extends Component {
   };
 
   render() {
-    // const { authError, auth } = this.props;
-    // if (auth.uid) return <Redirect to="/" />;
+    const { authError, auth } = this.props;
+    if (auth.uid) return <Redirect to="/" />;
 
     return (
       <div className="align">
@@ -67,10 +67,10 @@ class SignIn extends Component {
                 <Link to="/register">No Account!! Register Here!</Link>
                 
               </div>
-              <button><Link to="/">Login</Link></button>
-              {/* <div className="red-text center">
+              <button>Login</button>
+              <div className="red-text center">
                 {authError ? <p>{authError}</p> : null}
-              </div> */}
+              </div>
             </form>
           </div>
         </div>

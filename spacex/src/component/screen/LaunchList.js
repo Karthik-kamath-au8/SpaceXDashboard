@@ -1,29 +1,29 @@
-import React  from  'react';
-import { useState } from 'react';
-import { Table, Loader } from 'semantic-ui-react';
-import Modal from './Modal';
-import Paginate from './Paginate';
-import {statusLabel, formattedDate} from "../../utlis/index"
+import React, { useState } from "react";
+import { Table, Loader } from "semantic-ui-react";
 
-function LaunchList ({
-    isLoading,
-    launches,
-    activePage,
-    setActivePage,
-    launchCount
-}){
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [launch, setLaunch] = useState({});
-    const handleClose =() => setModalIsOpen(false);
+import Modal from "./Modal";
+import Paginate from "./Paginate";
+import { getStatusLabel, getFormattedDate } from "../../utlis/index";
 
-    const handleEvents = (launch) =>{
-        setModalIsOpen(true);
-        setLaunch(launch);
-    }
+function LaunchList({
+	isLoading,
+	launches,
+	activePage,
+	setActivePage,
+	launchCount,
+}) {
+	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const [launch, setLaunch] = useState({});
+	const handleClose = () => setModalIsOpen(false);
 
-    return(
-        <>
-        {modalIsOpen ? (
+	const handleEvents = (launch) => {
+		setModalIsOpen(true);
+		setLaunch(launch);
+	};
+
+	return (
+		<>
+			{modalIsOpen ? (
 				<Modal
 					modalStatus={modalIsOpen}
 					handleClose={handleClose}
@@ -87,12 +87,12 @@ function LaunchList ({
 												</Table.Cell>
 
 												<Table.Cell>
-													{formattedDate(
+													{getFormattedDate(
 														launch.launch_date_utc
 													)}
 												</Table.Cell>
 												<Table.Cell>
-													{statusLabel(
+													{getStatusLabel(
 														launch.launch_success
 													)}
 												</Table.Cell>
@@ -104,7 +104,7 @@ function LaunchList ({
 						) : (
 							<div className="center-image">
 								<img
-									src="https://cdn3.vectorstock.com/i/1000x1000/60/27/rocket-missile-crashed-error-not-found-concept-vector-18916027.jpg"
+									src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fimage-vector%2Foops-404-page-interface-design-rocket-1298364454&psig=AOvVaw3DBeZv8oKadZ6Lec7WPnAW&ust=1615746956695000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD5r-H0re8CFQAAAAAdAAAAABAD"
 									alt="404"
 									width="600"
 									height="500"
@@ -124,6 +124,7 @@ function LaunchList ({
 				</div>
 			)}
 		</>
-    )
+	);
 }
+
 export default LaunchList;

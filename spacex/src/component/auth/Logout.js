@@ -7,7 +7,8 @@ const Logout = (props) => {
     console.log(props)
     return (
         <ul className="right">
-            <li><Link onClick={props.signOut} to="/">Log Out</Link></li>
+            <li><Link onClick={props.signOut} to="/signin">Log Out</Link></li>
+            {/* <li style={{color:'white'}}>{props.username}</li> */}
         </ul>
     )
 }
