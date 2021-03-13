@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router';
+import LaunchList from './LaunchList';
+import { generateSearchTerm, paramsFromUrl } from '../../utlis/index'
 
 function Dashboard(){
     const [launches, setLaunches] = useState([]);
@@ -22,12 +24,8 @@ function Dashboard(){
 
 return (
     <div>
-        {launches.map(launche => {
-            return(
-                <p>{launche.flight_number}</p>
-            )
-        }
-        )}
+        <LaunchList
+        launches={launches}/>
     </div>
 )
 }

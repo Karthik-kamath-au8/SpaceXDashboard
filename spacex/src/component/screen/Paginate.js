@@ -28,3 +28,4 @@ function Paginate({activePage, setActivePage, launchCount }){
         </>
     )
 }
+export default Paginate;
