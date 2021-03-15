@@ -64,6 +64,7 @@ function Dashboard( props ) {
 		props.history.push(term);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [timeline, startDate, endDate, activePage]);
+	
 	const userLogin = useSelector((auth)=>auth.firebase.auth)
 	console.log(userLogin)
 	if (userLogin.isLoaded && !userLogin.uid) return <Redirect to="/signin" />;

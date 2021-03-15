@@ -79,28 +79,16 @@ const ParamsFromUrl = (params) => {
 	if (arr.length === 5) {
 		urlStartDate = arr[0].split("=")[1];
 		urlEndDate = arr[1].split("=")[1];
-		urlStatus = UrlStatus(arr[4]);
 		return [urlStartDate, urlEndDate, urlStatus];
 	} else if (arr.length === 4) {
 		urlStartDate = arr[0].split("=")[1];
 		urlEndDate = arr[1].split("=")[1];
 		return [urlStartDate, urlEndDate];
-	} else if (arr.length === 3) {
-		urlStatus = UrlStatus(arr[2]);
-		return [urlStatus];
 	} else if (arr.length === 2) {
 		return arr.join("&");
 	}
 };
-const UrlStatus = (statusString) => {
-	var statusToBoolean;
-	if (statusString.split("=")[1] === "false") {
-		statusToBoolean = false;
-	} else if (statusString.split("=")[1] === "true") {
-		statusToBoolean = true;
-	}
-	return Boolean(statusToBoolean);
-};
+
 
 export {
 	StatusLabel,
