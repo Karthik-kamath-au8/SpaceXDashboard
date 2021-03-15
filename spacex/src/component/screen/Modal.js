@@ -2,7 +2,7 @@ import React from "react";
 import ReactModal from "react-modal";
 import { Icon } from "semantic-ui-react";
 
-import { getStatusLabel, getFormattedDate } from "../../utlis/index";
+import { StatusLabel, FormattedDate } from "../../utlis/index";
 
 ReactModal.setAppElement("#root");
 function Modal({ modalStatus, handleClose, launch }) {
@@ -64,11 +64,11 @@ function Modal({ modalStatus, handleClose, launch }) {
 					<div className="col">
 						<h2>
 							<span className="field-name">Date </span>
-							{getFormattedDate(launch.launch_date_utc)}
+							{FormattedDate(launch.launch_date_utc)}
 						</h2>
 						<h3>
 							<span className="field-name">Status </span>
-							{getStatusLabel(launch.launch_success)}
+							{StatusLabel(launch.launch_success)}
 						</h3>
 					</div>
 				</div>

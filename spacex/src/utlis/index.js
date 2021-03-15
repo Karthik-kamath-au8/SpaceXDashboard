@@ -3,7 +3,7 @@ import { Button } from "semantic-ui-react";
 
 import moment from "moment";
 
-const getStatusLabel = (launch_success) => {
+const StatusLabel = (launch_success) => {
 	if (launch_success === null) {
 		return (
 			<Button size="tiny" color="yellow">
@@ -25,7 +25,7 @@ const getStatusLabel = (launch_success) => {
 	}
 };
 
-const getFormattedDate = (utcDate) => {
+const FormattedDate = (utcDate) => {
 	return moment(utcDate).utc().format("DD MMMM YYYY HH:mm");
 };
 
@@ -70,7 +70,7 @@ const generateSearchTerm = (
 	}
 };
 
-const getParamsFromUrl = (params) => {
+const ParamsFromUrl = (params) => {
 	var urlStatus;
 	var urlStartDate;
 	var urlEndDate;
@@ -79,20 +79,20 @@ const getParamsFromUrl = (params) => {
 	if (arr.length === 5) {
 		urlStartDate = arr[0].split("=")[1];
 		urlEndDate = arr[1].split("=")[1];
-		urlStatus = getUrlStatus(arr[4]);
+		urlStatus = UrlStatus(arr[4]);
 		return [urlStartDate, urlEndDate, urlStatus];
 	} else if (arr.length === 4) {
 		urlStartDate = arr[0].split("=")[1];
 		urlEndDate = arr[1].split("=")[1];
 		return [urlStartDate, urlEndDate];
 	} else if (arr.length === 3) {
-		urlStatus = getUrlStatus(arr[2]);
+		urlStatus = UrlStatus(arr[2]);
 		return [urlStatus];
 	} else if (arr.length === 2) {
 		return arr.join("&");
 	}
 };
-const getUrlStatus = (statusString) => {
+const UrlStatus = (statusString) => {
 	var statusToBoolean;
 	if (statusString.split("=")[1] === "false") {
 		statusToBoolean = false;
@@ -103,8 +103,8 @@ const getUrlStatus = (statusString) => {
 };
 
 export {
-	getStatusLabel,
-	getFormattedDate,
+	StatusLabel,
+	FormattedDate,
 	generateSearchTerm,
-	getParamsFromUrl,
+	ParamsFromUrl,
 };

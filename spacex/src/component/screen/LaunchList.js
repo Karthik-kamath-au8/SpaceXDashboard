@@ -3,7 +3,7 @@ import { Table, Loader } from "semantic-ui-react";
 
 import Modal from "./Modal";
 import Paginate from "./Paginate";
-import { getStatusLabel, getFormattedDate } from "../../utlis/index";
+import { StatusLabel, FormattedDate } from "../../utlis/index";
 
 function LaunchList({
 	isLoading,
@@ -87,12 +87,12 @@ function LaunchList({
 												</Table.Cell>
 
 												<Table.Cell>
-													{getFormattedDate(
+													{FormattedDate(
 														launch.launch_date_utc
 													)}
 												</Table.Cell>
 												<Table.Cell>
-													{getStatusLabel(
+													{StatusLabel(
 														launch.launch_success
 													)}
 												</Table.Cell>

@@ -7,7 +7,7 @@ import FilterByDate from "./FilterByDate";
 // import FilterByStatus from "./FilterByStatus";
 import LaunchList from "./LaunchList";
 
-import { generateSearchTerm, getParamsFromUrl } from "../../utlis/index";
+import { generateSearchTerm, ParamsFromUrl } from "../../utlis/index";
 import { useSelector } from "react-redux";
 import Navbar from "./Navbar";
 
@@ -17,7 +17,7 @@ function Dashboard( props ) {
 	let urlStartDate;
 	let urlEndDate;
 	urlTimeline = props.location.pathname.substring(1) || "";
-	const data = getParamsFromUrl(props.location.search);
+	const data = ParamsFromUrl(props.location.search);
 	if (data !== undefined) {
 		if (data.length === 3) {
 			urlStartDate = data[0];
@@ -35,7 +35,6 @@ function Dashboard( props ) {
 	const [timeline, setTimeline] = useState(urlTimeline || "");
 	const [startDate, setStartDate] = useState(null);
 	const [endDate, setEndDate] = useState(null);
-	const [status, setStatus] = useState(urlStatus);
 	const [activePage, setActivePage] = useState(1);
 	const [launchCount, setLaunchCount] = useState("");
 	const [isLoading, setIsLoading] = useState(Boolean);
@@ -59,13 +58,12 @@ function Dashboard( props ) {
 			timeline,
 			startDate,
 			endDate,
-			status,
 			activePage
 		);
 		getLaunches(term);
 		props.history.push(term);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [timeline, startDate, endDate, status, activePage]);
+	}, [timeline, startDate, endDate, activePage]);
 	const userLogin = useSelector((auth)=>auth.firebase.auth)
 	console.log(userLogin)
 	if (userLogin.isLoaded && !userLogin.uid) return <Redirect to="/signin" />;
